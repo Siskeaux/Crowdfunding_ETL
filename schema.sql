@@ -6,11 +6,15 @@ CREATE TABLE category (
     PRIMARY KEY (category_id)
 );
 
+SELECT * FROM category;
+
 CREATE TABLE subcategory (
     subcategory_id VARCHAR NOT NULL,
     subcategory VARCHAR NOT NULL,
     PRIMARY KEY (subcategory_id)
 );
+
+SELECT * FROM subcategory;
 
 CREATE TABLE campaign (
     cf_id INT NOT NULL,
@@ -31,6 +35,8 @@ CREATE TABLE campaign (
         "cf_id")
 );
 
+SELECT * FROM campaign;
+
 CREATE TABLE contacts (
     contact_id INT   NOT NULL,
     first_name VARCHAR   NOT NULL,
@@ -39,3 +45,5 @@ CREATE TABLE contacts (
     CONSTRAINT "pk_contacts" PRIMARY KEY (
         "contact_id")
 );
+
+SELECT * FROM contacts;
