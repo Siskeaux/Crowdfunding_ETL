@@ -16,6 +16,16 @@ CREATE TABLE subcategory (
 
 SELECT * FROM subcategory;
 
+CREATE TABLE contacts (
+    contact_id INT NOT NULL,
+    first_name VARCHAR NOT NULL,
+    last_name VARCHAR NOT NULL,
+    email VARCHAR NOT NULL,
+    PRIMARY KEY (contact_id)
+);
+
+SELECT * FROM contacts;
+
 CREATE TABLE campaign (
     cf_id INT NOT NULL,
     contact_id INT NOT NULL,
@@ -31,19 +41,10 @@ CREATE TABLE campaign (
     end_date DATE NOT NULL,
     category_id VARCHAR NOT NULL,
     subcategory_id VARCHAR NOT NULL,
-    CONSTRAINT "pk_campaign" PRIMARY KEY (
-        "cf_id")
+    PRIMARY KEY (cf_id),
+    FOREIGN KEY (category_id) REFERENCES category (category_id),
+    FOREIGN KEY (subcategory_id) REFERENCES subcategory (subcategory_id),
+    FOREIGN KEY (contact_id) REFERENCES contacts (contact_id)
 );
 
 SELECT * FROM campaign;
-
-CREATE TABLE contacts (
-    contact_id INT   NOT NULL,
-    first_name VARCHAR   NOT NULL,
-    last_name VARCHAR   NOT NULL,
-    email VARCHAR   NOT NULL,
-    CONSTRAINT "pk_contacts" PRIMARY KEY (
-        "contact_id")
-);
-
-SELECT * FROM contacts;
